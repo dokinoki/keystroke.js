@@ -9,6 +9,20 @@ Got tired of typing the magic numbers that are keypress codes
  - Internet Explorer 9+
  - Opera 12+
  - Safari 5+
+ 
+# Usage
+
+```jsx harmony
+import Keystroke from '../keystroke/index';
+
+const keyName = Keystroke.codeToString(27);
+
+if(keyName === 'ESCAPE') doSomething();
+```
+
+# Author
+
+https://github.com/omarestrella
 
 # License
 
