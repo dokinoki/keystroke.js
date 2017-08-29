@@ -10,6 +10,12 @@ Got tired of typing the magic numbers that are keypress codes
  - Opera 12+
  - Safari 5+
  
+# Installation
+
+```bash
+npm install keystroke.js
+```
+
 # Usage
 
 ```jsx harmony
