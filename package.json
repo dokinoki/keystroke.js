@@ -15,7 +15,7 @@
     ],
     "component": {
         "scripts": {
-            "keystroke": "keystroke.js"
+            "keystroke": "index.js"
         }
     }
 }
