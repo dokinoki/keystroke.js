@@ -1,4 +1,4 @@
-const capAlpha = {
+export const capAlpha = {
     A: 65,
     B: 66,
     C: 67,
@@ -27,7 +27,7 @@ const capAlpha = {
     Z: 90
 };
 
-const lowAlpha = {
+export const lowAlpha = {
     A: 97,
     B: 98,
     C: 99,
@@ -56,14 +56,14 @@ const lowAlpha = {
     Z: 122
 };
 
-const navigation = {
+export const navigation = {
     LEFT_ARROW: 37,
     UP_ARROW: 38,
     RIGHT_ARROW: 39,
     DOWN_ARROW: 40
 };
 
-const numbers = {
+export const numbers = {
     0: 48,
     1: 49,
     2: 50,
@@ -76,17 +76,19 @@ const numbers = {
     9: 57
 };
 
-const other = {
-    ESCAPE: 27
+export const other = {
+    DASH: 189,
+    ESCAPE: 27,
+    SUBTRACT: 109
 };
 
-const whitespace = {
+export const whitespace = {
     TAB: 9,
     ENTER: 13,
     SPACE: 32
 };
 
-function _keyForKeyCode(keyCode, object) {
+export function keyForKeyCode(keyCode, object) {
     var key;
 
     for(key in object) {
@@ -98,27 +100,27 @@ function _keyForKeyCode(keyCode, object) {
     return null;
 }
 
-function _isNumber(keyCode) {
+export function isNumber(keyCode) {
     return keyCode >= numbers[0] && keyCode <= numbers[9];
 }
 
-function _isAlphabet(keyCode) {
+export function isAlphabet(keyCode) {
     return (keyCode >= capAlpha.A && keyCode <= capAlpha.Z) || (keyCode >= lowAlpha.A && keyCode <= lowAlpha.Z);
 }
 
-function _isNavigation(keyCode) {
-    return keyCode >= navigation.LEFT_ARROW && keyCode <= navigation.DOWN_ARROW;
-}
-
-function _isWhitespace(keyCode) {
-    return keyCode === whitespace.SPACE || keyCode === whitespace.ENTER || keyCode === whitespace.TAB;
-}
-
-function _isEscape(keyCode) {
+export function isEscape(keyCode) {
     return keyCode === other.ESCAPE;
 }
 
-function _toString(keyCode) {
+export function isNavigation(keyCode) {
+    return keyCode >= navigation.LEFT_ARROW && keyCode <= navigation.DOWN_ARROW;
+}
+
+export function isWhitespace(keyCode) {
+    return keyCode === whitespace.SPACE || keyCode === whitespace.ENTER || keyCode === whitespace.TAB;
+}
+
+export function codeToString(keyCode) {
     if (_isAlphabet(keyCode) || _isNumber(keyCode)) {
         return String.fromCharCode(keyCode);
     } else if (_isNavigation(keyCode)) {
@@ -131,12 +133,3 @@ function _toString(keyCode) {
 
     return keyCode;
 }
-
-module.exports = {
-    isAlphabet: _isAlphabet,
-    isEscape: _isEscape,
-    isNavigation: _isNavigation,
-    isNumber: _isNumber,
-    isWhitespace: _isWhitespace,
-    codeToString: _toString
-};
