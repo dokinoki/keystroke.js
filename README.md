@@ -1,6 +1,10 @@
+# What
+
+This is a fork of the original project found here https://github.com/omarestrella/keystroke.js <br>
+
 # Why?
 
-Got tired of typing the magic numbers that are keypress codes
+Translates Javascript event key codes into labels.
 
 # Browser support
 
@@ -19,7 +23,7 @@ npm install keystroke.js
 # Usage
 
 ```jsx harmony
-import Keystroke from '../keystroke/index';
+import * as Keystroke from 'keystroke.js';
 
 const keyName = Keystroke.codeToString(27);
 

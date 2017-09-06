@@ -89,7 +89,7 @@ export const whitespace = {
 };
 
 export function keyForKeyCode(keyCode, object) {
-    var key;
+    let key;
 
     for(key in object) {
         if(object.hasOwnProperty(key) && object[key] === keyCode) {
@@ -100,12 +100,12 @@ export function keyForKeyCode(keyCode, object) {
     return null;
 }
 
-export function isNumber(keyCode) {
-    return keyCode >= numbers[0] && keyCode <= numbers[9];
-}
-
 export function isAlphabet(keyCode) {
     return (keyCode >= capAlpha.A && keyCode <= capAlpha.Z) || (keyCode >= lowAlpha.A && keyCode <= lowAlpha.Z);
+}
+
+export function isEnter(keyCode) {
+    return keyCode === whitespace.ENTER;
 }
 
 export function isEscape(keyCode) {
@@ -116,18 +116,22 @@ export function isNavigation(keyCode) {
     return keyCode >= navigation.LEFT_ARROW && keyCode <= navigation.DOWN_ARROW;
 }
 
+export function isNumber(keyCode) {
+    return keyCode >= numbers[0] && keyCode <= numbers[9];
+}
+
 export function isWhitespace(keyCode) {
     return keyCode === whitespace.SPACE || keyCode === whitespace.ENTER || keyCode === whitespace.TAB;
 }
 
 export function codeToString(keyCode) {
-    if (_isAlphabet(keyCode) || _isNumber(keyCode)) {
+    if (isAlphabet(keyCode) || isNumber(keyCode)) {
         return String.fromCharCode(keyCode);
-    } else if (_isNavigation(keyCode)) {
-        return _keyForKeyCode(keyCode, navigation);
-    } else if(_isWhitespace(keyCode)) {
-        return _keyForKeyCode(keyCode, whitespace);
-    } else if (_isEscape(keyCode)) {
+    } else if (isNavigation(keyCode)) {
+        return keyForKeyCode(keyCode, navigation);
+    } else if(isWhitespace(keyCode)) {
+        return keyForKeyCode(keyCode, whitespace);
+    } else if (isEscape(keyCode)) {
         return "ESCAPE";
     }
 
