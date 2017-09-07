@@ -1,7 +1,7 @@
 {
     "name": "keystroke.js",
     "version": "0.0.7",
-    "main": "keystroke.js",
+    "main": "lib/index.js",
     "repository": {
         "type": "git",
         "url": "git://github.com/dokinoki/keystroke.js"
@@ -15,7 +15,7 @@
     ],
     "scripts": {
         "build": "babel src -d lib",
-        "prepublish": "npm run build"
+        "prepublishOnly": "npm run build"
     },
     "component": {
         "scripts": {

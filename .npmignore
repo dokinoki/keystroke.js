@@ -1,3 +1,5 @@
+.idea/
 src/
+.babelrc
 .eslintignore
 .eslintrc.js
