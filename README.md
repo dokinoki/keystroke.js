@@ -30,6 +30,50 @@ const keyName = Keystroke.codeToString(27);
 if(keyName === 'ESCAPE') doSomething();
 ```
 
+# Other Methods
+#### Check if the key code corresponds to an alphabet letter
+
+```jsx harmony
+if(Keystroke.isAlphabet(27)) doSomething();
+
+```
+
+#### Check if the key code corresponds to the enter key
+
+```jsx harmony
+if(Keystroke.isEnter(27)) doSomething();
+
+```
+
+#### Check if the key code corresponds to the escape key
+
+```jsx harmony
+if(Keystroke.isEscape(27)) doSomething();
+
+```
+
+#### Check if the key code corresponds to an arrow key
+
+```jsx harmony
+if(Keystroke.isNavigation(27)) doSomething();
+
+```
+
+#### Check if the key code corresponds to a number key
+
+```jsx harmony
+if(Keystroke.isNumber(27)) doSomething();
+
+```
+
+#### Check if the key code corresponds to a whitespace key
+
+```jsx harmony
+if(Keystroke.isWhitespace(27)) doSomething();
+
+```
+
+
 # Author
 
 https://github.com/omarestrella
