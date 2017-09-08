@@ -1,6 +1,6 @@
 {
     "name": "keystroke.js",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "main": "lib/index.js",
     "repository": {
         "type": "git",
@@ -15,14 +15,33 @@
     ],
     "scripts": {
         "build": "babel src -d lib",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "test": "ava"
     },
     "component": {
         "scripts": {
             "keystroke": "index.js"
         }
     },
+    "ava": {
+        "files": [
+            "tests/**/*.js"
+        ],
+        "source": [
+            "src/**/*"
+        ],
+        "concurrency": 5,
+        "failFast": true,
+        "failWithoutAssertions": false,
+        "tap": true,
+        "powerAssert": false,
+        "require": [
+            "babel-register"
+        ],
+        "babel": "inherit"
+    },
     "devDependencies": {
+        "ava": "^0.22.0",
         "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.6.0",
         "eslint": "^4.6.1",
